@@ -1,7 +1,7 @@
 from operator import ge
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, Session
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, BigInteger
 import boto3
 import csv
 import os
@@ -14,8 +14,8 @@ class AccountRelation(Base):
 
     id = Column(Integer, primary_key=True)
     relationship_name = Column(String)
-    customer_id = Column(Integer)
-    parent_account = Column(Integer)
+    customer_id = Column(BigInteger)
+    parent_account = Column(BigInteger)
     branch = Column(String)
 
 def get_db_engine():
